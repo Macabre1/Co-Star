@@ -1,8 +1,9 @@
 var path = require('path');
 var pmongo = require('promised-mongo');
 var mongodb = require('mongodb');
-var db = pmongo('costardb');
-//needs db to be defined with our mongodb path
+var uri = require('./uri.js');
+var db = pmongo(uri.uri, {authMechanism: 'ScramSHA1'});
+
 module.exports = db;
 
 
@@ -26,8 +27,9 @@ module.exports = db;
 
  	db.addThespian = function(thespianObj){
         return db.collection('thespians').insert(thespianObj)
-                 .then(function(){
-                 	console.log('addThespian(db.js): A thespian has entered our cast', thespianObj)
+                 .then(function(data){
+                 	console.log('addThespian(db.js): A thespian has entered our cast', thespianObj);
+                 	return data;
                  })
  	}
     

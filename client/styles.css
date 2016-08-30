@@ -1,5 +1,23 @@
-body{
-  background-color:black;
+body {
+  background-color:#2f4f4f;
   color:white;
-  
+}
+
+input { 
+  color:black;
+}
+
+button {
+  color: black;
+}
+
+ul {
+  display: inline-block;
+}
+
+li {
+  display: inline-block;
+  width: 150px;
+  height: 200px;
+  padding: 2px;
 }
